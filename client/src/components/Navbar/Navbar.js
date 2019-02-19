@@ -1,6 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { search } from '../../actions/searchActions';
 
 class Navbar extends Component {
+    state = {
+       currentSearchInput: "" 
+    }
+
+    handleInputChange = (event) => {
+        // Getting the value of the input from the form
+        let newSearchInput = event.target.value;
+    
+        //And updating the component's state
+        this.setState({
+            currentSearchInput: newSearchInput
+        });
+    }
+
+    handleFormSubmit = (event) => {
+        event.preventDefault();
+        console.log("Form Submitted");
+        this.props.search(this.state.currentSearchInput)
+    }
+
     render() {
         return(
             <nav className="navbar navbar-expand-md sticky-top navbar-dark bg-dark">
@@ -11,8 +33,8 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse mr-0" id="navbarNavDropdown">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <form className="form-inline">
-                                <input className="form-control mr-sm-2" type="search" placeholder="Search for Articles" aria-label="Search"></input>
+                            <form className="form-inline" onSubmit={this.handleFormSubmit}>
+                                <input className="form-control mr-sm-2" type="search" onChange={this.handleInputChange} placeholder="Search for Articles" aria-label="Search"></input>
                                 <button className="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
                             </form>
                         </li>
@@ -23,4 +45,16 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+    return {
+        searches: state.searches
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        search: (terms) => { dispatch(search(terms)) }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

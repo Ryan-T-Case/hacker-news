@@ -17,7 +17,7 @@ class SearchHistory extends Component {
                         {
                             searches.map(search => {
                                 return (
-                                    <button className="btn btn-info m-2" key={search.id}>{search.terms}</button>
+                                    <button className="btn btn-info m-2" key={search}>{search}</button>
                                 )
                             })
                         }

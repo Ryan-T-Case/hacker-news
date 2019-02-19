@@ -1,10 +1,14 @@
 const initState = {
-    searches: [{id: '1', terms: 'JavaScript'},
-    {id: '2', terms: 'Apple'},
-    {id: '3', terms: 'Amazon'}]
+    searches: []
 }
 
 const rootReducer = (state = initState, action) => {
+    if (action.type === 'CREATE_SEARCH') {
+        return {
+            ...state,
+            searches: [state.searches.terms]
+        }
+    }
     return state;
 }
 
