@@ -19,11 +19,11 @@ By [Ryan Case](mailto:Ryan_Case@outlook.com)
 
 ## Discussion
 
-I used the following technologies: HTML, CSS, React, and Redux.
+I used the following technologies: HTML, CSS, Bootstrap, React, and Redux.
 
 - I used [create-react-app](https://goo.gl/26jfy4)
 to start building this application.
-- I used [react-bootstrap](https://github.com/react-bootstrap/react-bootstrap)
+- I used [Bootstrap](https://getbootstrap.com/)
 to make establishing a grid system easier, as well as simplify some of the styling.
 - I used the [HN Search API](https://hn.algolia.com/api) 
 to GET articles from Hacker News and display them for the user.
