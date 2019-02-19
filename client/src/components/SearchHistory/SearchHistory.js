@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class SearchHistory extends Component {
     render() {
+        const { searches } = this.props;
         return(
             <div className="search-results">
                 <div className="row">
@@ -12,6 +14,13 @@ class SearchHistory extends Component {
                 <div className="row m-3 bg-dark text-light border border-info">
                     <div className="col-12">
                         <p>Click on any of your previous search terms to conduct a retroactive search.</p>
+                        {
+                            searches.map(search => {
+                                return (
+                                    <button className="btn btn-info m-2" key={search.id}>{search.terms}</button>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
@@ -19,4 +28,10 @@ class SearchHistory extends Component {
     }
 }
 
-export default SearchHistory;
+const mapStateToProps = (state) => {
+    return {
+        searches: state.searches
+    }
+}
+
+export default connect(mapStateToProps)(SearchHistory);
