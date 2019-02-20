@@ -1,5 +1,6 @@
 const initState = {
-    searches: []
+    searches: [],
+    results: []
 }
 
 const rootReducer = (state = initState, action) => {
@@ -8,6 +9,14 @@ const rootReducer = (state = initState, action) => {
             ...state,
             searches: [...state.searches, action.terms]
         }
+    } else if (action.type === 'FETCH_RESULTS') {
+        return {
+            ...state,
+            results: action.results
+        }
+    } else if (action.type === 'FETCH_RESULTS_ERROR') {
+        console.log('fetch results error', action.err);
+        return state;
     }
     return state;
 }

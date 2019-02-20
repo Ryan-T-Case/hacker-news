@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { search } from '../../actions/searchActions';
+import { fetchResults } from '../../actions/resultsActions';
 
 class Navbar extends Component {
     state = {
@@ -23,7 +24,9 @@ class Navbar extends Component {
         console.log(this.state.currentSearchInput);
         this.props.search(this.state.currentSearchInput);
         console.log(this.props)
+        this.props.fetchResults(this.state.currentSearchInput);
     }
+
 
     render() {
         return(
@@ -49,13 +52,15 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        searches: state.searches
+        searches: state.searches,
+        results: state.results
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        search: (terms) => { dispatch(search(terms)) }
+        search: (terms) => { dispatch(search(terms)) },
+        fetchResults: (query) => dispatch(fetchResults(query))
     }
 }
 
