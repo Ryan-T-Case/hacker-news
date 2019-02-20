@@ -12,11 +12,13 @@ class SearchResults extends Component {
         } else {
             const { results } = this.props;
             return (
-                results.map(result => {
-                    return (
-                        <p className="text-info" key={result.objectID}>{result.title}</p>
-                    )
-                })
+                <div className="list-group">
+                    {results.map(result => {
+                        return (
+                            <a href={result.url} className="list-group-item list-group-item-action list-group-item-info mt-1 mb-1" key={result.objectID}><strong className="text-dark">{result.title}</strong><br></br><strong>Author:</strong> {result.author}</a>
+                        )
+                    })}
+                </div>
             )
         }
     }
