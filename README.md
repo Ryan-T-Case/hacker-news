@@ -19,24 +19,24 @@ By [Ryan Case](mailto:Ryan_Case@outlook.com)
 
 ## Discussion
 
-I used the following technologies: HTML, CSS, Bootstrap, React, and Redux.
+I used the following technologies: HTML, CSS, React, and Redux.
 
-- I used [create-react-app](https://goo.gl/26jfy4)
-to start building this application.
-- I used [Bootstrap](https://getbootstrap.com/)
-to make establishing a grid system easier, as well as simplify some of the styling.
-- I used the [HN Search API](https://hn.algolia.com/api) 
-to GET articles from Hacker News and display them for the user.
+#### Packages / Additional Libraries Used
+
+- I used [create-react-app](https://goo.gl/26jfy4) to start building this application.
+- I used [redux-thunk](https://yarnpkg.com/en/package/redux-thunk) middleware to assist with handling asynchronous calls by allowing my action creator to return functions instead of an action.
+- I used [axios](https://yarnpkg.com/en/package/axios) to make AJAX calls to the [HN Search API](https://hn.algolia.com/api) and display the response data to the user based on their search terms.
+- I used [Bootstrap](https://getbootstrap.com/) to make establishing a grid system easier, as well as simplify some of the styling.
 
 ## Requirements
 
 #### Build an application that lets the user search the Hacker News Algolia API and displays a list of results.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ante eros, volutpat a tortor eu, accumsan maximus dolor. Quisque vitae ligula at dolor sagittis tempus eget posuere nulla. Morbi placerat luctus diam, dapibus rhoncus sem molestie in. Nullam maximus justo vitae nisi interdum, vel ultricies lectus bibendum. Aliquam nec auctor ante. Curabitur elementum ante a posuere dapibus. Integer ac sapien sit amet magna ultrices ultricies luctus sit amet orci.
+I created a simple article search form within a navbar that will take user queries on submit and pass them to an AJAX call to the Algolia API. The response is then held in the Redux store, which is mapped through to display the search results to the user. When a new search is made by the user, the previous results are cleared and only the current results relevant to the current search terms are displayed.
 
 #### Save the user's search terms in the Redux state (don't need to persist across sessions).
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ante eros, volutpat a tortor eu, accumsan maximus dolor. Quisque vitae ligula at dolor sagittis tempus eget posuere nulla. Morbi placerat luctus diam, dapibus rhoncus sem molestie in. Nullam maximus justo vitae nisi interdum, vel ultricies lectus bibendum. Aliquam nec auctor ante. Curabitur elementum ante a posuere dapibus. Integer ac sapien sit amet magna ultrices ultricies luctus sit amet orci.
+When the article search form is submitted, the Redux store is updated. I saved all search history to an array in the Redux store, and it is mapped through to display previous searches to the user as buttons. When clicked,these buttons will perform the original AJAX call they are associated with and return those results again for the user. I added this to demonstrate that search history was being saved as well as add some additional functionality.
 
 ## Special Thanks
 
