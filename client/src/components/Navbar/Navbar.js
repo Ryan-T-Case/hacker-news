@@ -22,8 +22,11 @@ class Navbar extends Component {
         event.preventDefault();
         console.log("Form Submitted");
         console.log(this.state.currentSearchInput);
+
+        // We capture the current input to save to our search history
         this.props.search(this.state.currentSearchInput);
-        console.log(this.props)
+
+        // And we also take that input and pass it to our AJAX call to the API
         this.props.fetchResults(this.state.currentSearchInput);
     }
 

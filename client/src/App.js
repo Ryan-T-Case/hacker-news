@@ -11,10 +11,10 @@ class App extends Component {
         <Navbar />
         <div className="container mt-5 text-center">
           <div className="row">
-            <div className="col-6 border-right border-left border-dark">
+            <div className="col-6">
               <SearchResults />
             </div>
-            <div className="col-6 border-right border-dark">
+            <div className="col-6">
               <SearchHistory />
             </div>
           </div>

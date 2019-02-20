@@ -4,7 +4,9 @@ import { fetchResults } from '../../actions/resultsActions';
 
 class SearchHistory extends Component {
 
+    // This function handles retroactive searches when a search history button is clicked
     retroSearch = (event) => {
+        // Here we grab the id of the button that is clicked and pass it to our AJAX call
         this.props.fetchResults(event.target.id);
     }
 
@@ -17,7 +19,7 @@ class SearchHistory extends Component {
                         <h1 className="text-light">Search History</h1>
                     </div>
                 </div>
-                <div className="row m-3 bg-dark text-light border border-info">
+                <div className="row m-3 p-2 bg-dark text-light border border-info">
                     <div className="col-12">
                         <p>Click on any of your previous search terms to conduct a retroactive search.</p>
                         {

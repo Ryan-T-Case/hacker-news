@@ -4,15 +4,19 @@ import { connect } from 'react-redux';
 
 class SearchResults extends Component {
 
+    // Function to handle conditional rendering for this component
     handleSearchResults = () => {
+        // When there is no results values being kept in the redux store
         if (this.props.results.length === 0) {
             return (
-                <p className="text-info border border-info p-3">There are no results to display.</p>
+                // Display message to client
+                <p className="text-info p-3 m-2">There are no results to display.</p>
             )
         } else {
+            // Otherwise, display results currently being held in the store
             const { results } = this.props;
             return (
-                <div className="list-group">
+                <div className="list-group p-3">
                     {results.map(result => {
                         return (
                             <a href={result.url} className="list-group-item list-group-item-action list-group-item-info mt-1 mb-1" key={result.objectID}><strong className="text-dark">{result.title}</strong><br></br><strong>Author:</strong> {result.author}</a>
@@ -32,7 +36,7 @@ class SearchResults extends Component {
                     </div>
                 </div>
                 <div className="row m-3">
-                    <div className="col-12">
+                    <div className="col-12 p-1 bg-dark border border-info">
                         {this.handleSearchResults()}
                     </div>
                 </div>

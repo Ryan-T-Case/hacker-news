@@ -1,3 +1,6 @@
+// For the size of this application, only a root reducer is necessary
+
+// Initializing the redux state. We want to track search history and hold search results.
 const initState = {
     searches: [],
     results: []
