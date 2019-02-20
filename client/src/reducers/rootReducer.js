@@ -6,7 +6,7 @@ const rootReducer = (state = initState, action) => {
     if (action.type === 'CREATE_SEARCH') {
         return {
             ...state,
-            searches: [state.searches.terms]
+            searches: [...state.searches, action.terms]
         }
     }
     return state;

@@ -20,7 +20,9 @@ class Navbar extends Component {
     handleFormSubmit = (event) => {
         event.preventDefault();
         console.log("Form Submitted");
-        this.props.search(this.state.currentSearchInput)
+        console.log(this.state.currentSearchInput);
+        this.props.search(this.state.currentSearchInput);
+        console.log(this.props)
     }
 
     render() {
