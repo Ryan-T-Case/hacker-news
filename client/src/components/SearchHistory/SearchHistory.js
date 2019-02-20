@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchResults } from '../../actions/resultsActions';
 
 class SearchHistory extends Component {
+
+    retroSearch = (event) => {
+        this.props.fetchResults(event.target.id);
+    }
+
     render() {
         const { searches } = this.props;
         return(
@@ -17,7 +23,7 @@ class SearchHistory extends Component {
                         {
                             searches.map(search => {
                                 return (
-                                    <button className="btn btn-info m-2" key={search}>{search}</button>
+                                    <button className="btn btn-info m-2" id={search} key={search} onClick={this.retroSearch}>{search}</button>
                                 )
                             })
                         }
@@ -34,4 +40,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(SearchHistory);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchResults: (query) => dispatch(fetchResults(query))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchHistory);
