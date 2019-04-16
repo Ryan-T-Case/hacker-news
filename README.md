@@ -2,7 +2,8 @@
 
 By [Ryan Case](mailto:Ryan_Case@outlook.com)
 
-[ryan-t-case.github.io](https://ryan-t-case.github.io/)
+[Check out my Portfolio](https://ryan-t-case.github.io/)
+[Deployed app](https://hacker-news-react-redux.herokuapp.com/)
 
 ## Instructions
 
