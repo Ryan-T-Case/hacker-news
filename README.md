@@ -28,16 +28,12 @@ I used the following technologies: HTML, CSS, React, and Redux.
 - I used [axios](https://yarnpkg.com/en/package/axios) to make AJAX calls to the [HN Search API](https://hn.algolia.com/api) and display the response data to the user based on their search terms.
 - I used [Bootstrap](https://getbootstrap.com/) to make establishing a grid system easier, as well as simplify some of the styling.
 
-## Requirements
+## Features
 
 #### Build an application that lets the user search the Hacker News Algolia API and displays a list of results.
 
 I created a simple article search form within a navbar that will take user queries on submit and pass them to an AJAX call to the Algolia API. The response is then held in the Redux store, which is mapped through to display the search results to the user. When a new search is made by the user, the previous results are cleared and only the current results relevant to the current search terms are displayed.
 
-#### Save the user's search terms in the Redux state (don't need to persist across sessions).
+#### Save the user's search terms in the Redux state.
 
-When the article search form is submitted, the Redux store is updated. I saved all search history to an array in the Redux store, and it is mapped through to display previous searches to the user as buttons. When clicked,these buttons will perform the original AJAX call they are associated with and return those results again for the user. I added this to demonstrate that search history was being saved as well as add some additional functionality.
-
-## Special Thanks
-
-Thank you [RTS Labs](https://rtslabs.com/), for giving me this challenge. It was a fun experience, and I enjoyed getting to learn a new technology in the process!
+When the article search form is submitted, the Redux store is updated. I saved all search history to an array in the Redux store, and it is mapped through to display previous searches to the user as buttons. When clicked,these buttons will perform the original AJAX call they are associated with and return those results again for the user.
